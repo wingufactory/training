@@ -1,0 +1,33 @@
+all:
+  hosts:
+    node1:
+      ansible_host: c6eb1619611c.mylabserver.com 
+      ip: 172.31.27.251
+      access_ip: 172.31.27.251
+    node2:
+      ansible_host: c6eb1619612c.mylabserver.com
+      ip: 172.31.16.38
+      access_ip: 172.31.16.38
+    node3:
+      ansible_host: c6eb1619613c.mylabserver.com
+      ip: 172.31.17.46
+      access_ip: 172.31.17.46
+  children:
+    kube_control_plane:
+      hosts:
+        node1:
+    kube_node:
+      hosts:
+        node2:
+        node3:
+    etcd:
+      hosts:
+        node1:
+        node2:
+        node3:
+    k8s_cluster:
+      children:
+        kube_control_plane:
+        kube_node:
+    calico_rr:
+      hosts: {}
