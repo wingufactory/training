@@ -51,7 +51,7 @@ ingress_nginx_host_network: true
 ```
 ## Prepare Cluster Installation
 
-### Be Sure all nodes are ss accessible from ansible node
+### Be Sure all nodes are SSH accessible from ansible node
 
 ```bash
 # First generate the ssh-keys for your local user on your ansible node
